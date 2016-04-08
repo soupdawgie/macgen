@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  macs: 1
+  vendor: MyString
+  base: MyString
+  s: MyString
+
+two:
+  macs: 1
+  vendor: MyString
+  base: MyString
+  s: MyString

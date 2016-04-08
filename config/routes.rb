@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  get 'queries/index'
+
+  get 'queries/new'
+
+  get 'queries/show'
+
+  get 'queries/edit'
+
+  get 'queries/update'
+
+  get 'queries/destroy'
+
+  resources :queries
+  root 'queries#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

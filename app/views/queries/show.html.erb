@@ -1,0 +1,48 @@
+<h1>Queries#show</h1>
+<p>Find me in app/views/queries/show.html.erb</p>
+
+<%
+count = @query.macs.to_i
+vendor = @query.vendor.split
+s = @query.s
+a, b, c = @query.base.split.map! { |n| n.to_i(16) }
+switch = 0
+x, y, z = ["0", "0", "0"] %>
+
+<% count.times do %>
+  <p><%= @result  = vendor.join(s) + sprintf("#{s}%s%x#{s}%s%x#{s}%s%x", x, a, y, b, z, c) %></p>
+<%
+
+  if c < 255 && switch == 0
+    if !(0...15).include?(c)
+      z = ""
+    end
+    c += 1
+    if c == 255
+      switch = 1
+      c = 0
+      z = "0"
+    end
+  elsif b < 255 && switch == 1
+    if !(0...15).include?(b)
+      y = ""
+    end
+    b += 1
+    if b == 255
+      switch = 2
+      b = 0
+      y = "0"
+    end
+  elsif a < 255 && switch == 2
+    if !(0...15).include?(a)
+      x = ""
+    end
+    a += 1
+    if a == 255
+      switch = 3
+      a = 0
+      x = "0"
+    end
+  end
+end
+%>

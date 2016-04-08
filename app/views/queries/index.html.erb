@@ -1,0 +1,7 @@
+<h1>All queries</h1>
+
+<% @queries.each do |query| %>
+  <p><%= link_to query.created_at, query %> | <%= link_to "delete", query, method: :delete %></p>
+<% end %>
+
+<%= will_paginate %>

@@ -1,0 +1,19 @@
+<h1>New query</h1>
+
+<%= form_for @query do |f| %>
+
+  <%= f.label :macs, "How many addresses do you need?" %>
+  <%= f.text_field :macs, class: "form-control" %>
+
+  <%= f.label :vendor, "Set vendor ID (e.g. 0a 0b 0c)" %>
+  <%= f.text_field :vendor, class: "form-control" %>
+
+  <%= f.label :base, "Set address to start (e.g. 01 02 03):" %>
+  <%= f.text_field :base, class: "form-control" %>
+
+  <%= f.label :s, "What separator would you prefer?" %>
+  <%= f.text_field :s, class: "form-control" %>
+
+  <%= f.submit "Submit query", class: "btn btn-primary" %>
+  
+<% end %>
