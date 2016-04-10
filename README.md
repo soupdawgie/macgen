@@ -1,3 +1,3 @@
 ##Macgen
 
-*Macgen* is a simple generator of consecutive MAC addresses.
+**Macgen** is a simple generator of consecutive MAC addresses.
