@@ -1,8 +1,8 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top">
   <nav>
     <ul class="nav navbar-nav">
       <li><%= link_to "Macgen", root_path, class: "brand" %></li>
-      <li><%= link_to "New query",   new_query_path %></li>
+      <li class="new"><%= link_to glyph("plus", "New query"), new_query_path, class: "new" %></li>
       <li><%= link_to "All queries", queries_path %></li>
     </ul>
   </nav>

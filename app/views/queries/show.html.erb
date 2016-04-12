@@ -1,16 +1,13 @@
-<h1><%= title(@query) %></h1>
+<div class="query">
+  <h1><%= title(@query) %></h1>
+  <%= link_to "edit",   edit_query_path(@query), class: "title-link" %>
+  <%= link_to "delete", @query, method: :delete, data: { confirm: "You sure?" },
+                                class: "title-link" %>
+</div>
 
-<%
-base   = 16777216
-vendor = @query.vendor.scan(/.{2}/)
-start  = @query.start.scan(/.{2}/).map! { |n| n.hex }
-amount = @query.amount
-s      = @query.separator
-
-start = base + start[2] + (start[1] * 256) + (start[0] * 65536)
-%>
-
-<% amount.times do %>
-  <p><%= vendor.join(s) + s + format(start, s) %></p>
-  <% start += 1 %>
-<% end %>
+<div class="macs">
+  <% amount.times do %>
+    <p><%= format(vendor, spr) + format(position, spr) %></p>
+    <% position += 1 %>
+  <% end %>
+</div>

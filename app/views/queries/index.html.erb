@@ -4,7 +4,12 @@
   <p>There is no any saved queries yet. Go ahead and generate some macs!</p>
 <% else %>
   <% @queries.each do |query| %>
-    <p><%= link_to title(query), query %> | <%= link_to "delete", query, method: :delete %></p>
+    <div class="query">
+      <%= link_to title(query), query, class: "query-link" %>
+      <%= link_to "edit",   edit_query_path(query), class: "title-link" %>
+      <%= link_to "delete", query, method: :delete, data: { confirm: "You sure?" },
+                                    class: "title-link" %>
+    </div>
   <% end %>
 <% end %>
 

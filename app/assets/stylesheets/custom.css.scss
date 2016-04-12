@@ -1,23 +1,189 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@font-face {
+  font-family: "DejaVuSansMono";
+  src: font-url("DejaVuSansMono.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LiberationSans";
+  src: font-url("LiberationSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* color set */
+$grey: #594F4F;
+$light-grey: #877878;
+$dark-green: #547980;
+$med-green: #45ADA8;
+$light-green: #9DE0AD;
+$lightest-green: #E5FCC2;
+
+/* universal */
+
 body {
+  font-family: "LiberationSans";
   padding-top: 60px;
+  padding-bottom: 100px;
+  font-size: 16px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+a {
+  color: $dark-green;
+  &:hover {
+    color: $light-green;
+  }
+}
+
+h1, h2, h3, h4 {
+  color: $light-grey;
+}
+
+p {
+  font-family: "DejaVuSansMono";
+  color: $grey;
 }
 
 .btn {
   margin-top: 10px;
-}
-
-a.brand {
-  margin-left: 98px;
-  font-size: 30px;
-  color: white;
-  font-weight: bold;
-  letter-spacing: -2px;
-  text-transform: lowercase;
-}
-
-p {
+  background-color: $med-green;
+  border: none;
   font-size: 16px;
+  &:hover {
+    background-color: $dark-green;
+  }
+}
+
+label {
+  color: $grey;
+}
+
+/* header */
+
+.navbar {
+  background-color: $grey;
+  li {
+    a {
+      color: white;
+      &:hover {
+        color: $light-green;
+        background-color: transparent;
+      }
+    }
+    a.brand {
+      margin-left: 98px;
+      font-size: 35px;
+      font-weight: bold;
+      color: $light-green;
+      letter-spacing: -1px;
+      text-transform: lowercase;
+      &:hover {
+        color: $light-green;
+        background-color: transparent;
+      }
+    }
+    a.new {
+      margin: 5px 0px 5px 0px;
+      padding: 10px 15px 10px 15px;
+      border-radius: 3px;
+      background-color: $med-green;
+      &:hover {
+        color: white;
+        background-color: $dark-green;
+      }
+    }
+  }
+}
+
+/* queries */
+
+.query {
+  margin-top: 10px;
+  h1 {
+    display: inline;
+    margin-right: 10px;
+  }
+  .query-link {
+    margin-right: 20px;
+    font-family: "DejaVuSansMono";
+  }
+  .title-link {
+    padding: 2px 4px 2px 4px;
+    color: white;
+    background-color: $med-green;
+    border-radius: 2px;
+    &:hover {
+      background-color: $dark-green;
+      text-decoration: none;
+    }
+  }
+}
+
+.macs {
+  margin-top: 15px;
+}
+
+/* footer */
+
+footer.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 90px;
+  margin-left: -113px;
+  padding: 20px 0px 50px 98px;
+	background-color: $lightest-green;
+  li {
+    a {
+      padding: 0px 15px 15px 0px;
+      &:hover {
+        color: $grey;
+        background-color: transparent;
+        text-decoration: underline;
+      }
+    }
+  }
+  small {
+    display: block;
+    clear: both;
+    color: $light-grey;
+    a:hover {
+      color: $grey;
+    }
+  }
+}
+
+/* pagination */
+
+div.pagination {
+  margin-top: 15px;
+  ul {
+    li {
+      a {
+        color: $light-grey;
+        &:hover {
+          color: $dark-green;
+        }
+      }
+    }
+    li.active {
+      a {
+        color: white;
+        background-color: $med-green;
+        border-color: $med-green;
+        &:hover {
+          background-color: $dark-green;
+        }
+      }
+    }
+  }
 }
