@@ -64,7 +64,9 @@ p {
 }
 
 label {
+  margin-top: 10px;
   color: $grey;
+  font-weight: normal;
 }
 
 /* header */
@@ -107,23 +109,26 @@ label {
 /* queries */
 
 .query {
+  width: 520px;
   margin-top: 10px;
   h1 {
     display: inline;
     margin-right: 10px;
   }
   .query-link {
-    margin-right: 20px;
     font-family: "DejaVuSansMono";
   }
-  .title-link {
-    padding: 2px 4px 2px 4px;
-    color: white;
-    background-color: $med-green;
-    border-radius: 2px;
-    &:hover {
-      background-color: $dark-green;
-      text-decoration: none;
+  .action-links {
+    float: right;
+    a {
+      padding: 2px 4px 2px 4px;
+      color: white;
+      background-color: $med-green;
+      border-radius: 2px;
+      &:hover {
+        background-color: $dark-green;
+        text-decoration: none;
+      }
     }
   }
 }
