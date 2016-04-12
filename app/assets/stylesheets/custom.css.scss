@@ -92,6 +92,9 @@ label {
         color: $light-green;
         background-color: transparent;
       }
+      &:focus {
+        background-color: transparent;
+      }
     }
     a.new {
       margin: 5px 0px 5px 0px;
@@ -111,30 +114,39 @@ label {
 .query {
   width: 520px;
   margin-top: 10px;
-  h1 {
-    display: inline;
-    margin-right: 10px;
-  }
-  .query-link {
+  .query-links {
     font-family: "DejaVuSansMono";
   }
+}
+
+.query-show {
+  h1 {
+    display: inline-block;
+  }
   .action-links {
-    float: right;
-    a {
-      padding: 2px 4px 2px 4px;
-      color: white;
-      background-color: $med-green;
-      border-radius: 2px;
-      &:hover {
-        background-color: $dark-green;
-        text-decoration: none;
-      }
+    display: inline;
+    float: none;
+    margin-left: 15px;
+  }
+}
+
+.action-links {
+  float: right;
+  a {
+    padding: 2px 4px 2px 4px;
+    color: white;
+    background-color: $med-green;
+    border-radius: 2px;
+    font-size: 16px;
+    &:hover {
+      background-color: $dark-green;
+      text-decoration: none;
     }
   }
 }
 
 .macs {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 /* footer */

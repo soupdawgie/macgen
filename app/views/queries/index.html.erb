@@ -5,7 +5,7 @@
 <% else %>
   <% @queries.each do |query| %>
     <div class="query">
-      <%= link_to title(query), query, class: "query-link" %>
+      <%= link_to title(query), query, class: "query-links" %>
       <div class="action-links">
         <%= link_to "edit",   edit_query_path(query) %>
         <%= link_to "delete", query, method: :delete, data: { confirm: "You sure?" } %>
