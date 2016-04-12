@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(version: 20160408144028) do
 
   create_table "queries", force: :cascade do |t|
-    t.integer  "macs"
+    t.integer  "amount"
     t.string   "vendor"
-    t.string   "base"
-    t.string   "s",          default: ":"
+    t.string   "start"
+    t.string   "separator",  default: ":"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end

@@ -1,6 +1,6 @@
 class QueriesController < ApplicationController
   def index
-    @queries = Query.paginate(page: params[:page])
+    @queries = Query.paginate(page: params[:page], per_page: 20)
   end
 
   def new
@@ -22,9 +22,17 @@ class QueriesController < ApplicationController
   end
 
   def edit
+    @query = Query.find(params[:id])
   end
 
   def update
+    @query = Query.find(params[:id])
+    if @query.update_attributes(query_params)
+      flash[:success] = "Query successfully updated!"
+      redirect_to @query
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -37,5 +45,5 @@ end
   private
 
     def query_params
-      params.require(:query).permit(:macs, :vendor, :base, :s)
+      params.require(:query).permit(:amount, :vendor, :start, :separator)
     end

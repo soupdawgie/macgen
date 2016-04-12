@@ -1,47 +1,16 @@
-<h1><%= @query.created_at %></h1>
+<h1><%= title(@query) %></h1>
 
 <%
-count = @query.macs.to_i
-vendor = @query.vendor.split
-s = @query.s
-a, b, c = @query.base.split.map! { |n| n.to_i(16) }
-switch = 0
-x, y, z = ["0", "0", "0"] %>
+base   = 16777216
+vendor = @query.vendor.scan(/.{2}/)
+start  = @query.start.scan(/.{2}/).map! { |n| n.hex }
+amount = @query.amount
+s      = @query.separator
 
-<% count.times do %>
-  <p><%= @result  = vendor.join(s) + sprintf("#{s}%s%x#{s}%s%x#{s}%s%x", x, a, y, b, z, c) %></p>
-<%
-
-  if c < 255 && switch == 0
-    if !(0...15).include?(c)
-      z = ""
-    end
-    c += 1
-    if c == 255
-      switch = 1
-      c = 0
-      z = "0"
-    end
-  elsif b < 255 && switch == 1
-    if !(0...15).include?(b)
-      y = ""
-    end
-    b += 1
-    if b == 255
-      switch = 2
-      b = 0
-      y = "0"
-    end
-  elsif a < 255 && switch == 2
-    if !(0...15).include?(a)
-      x = ""
-    end
-    a += 1
-    if a == 255
-      switch = 3
-      a = 0
-      x = "0"
-    end
-  end
-end
+start = base + start[2] + (start[1] * 256) + (start[0] * 65536)
 %>
+
+<% amount.times do %>
+  <p><%= vendor.join(s) + s + format(start, s) %></p>
+  <% start += 1 %>
+<% end %>

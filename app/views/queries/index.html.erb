@@ -1,7 +1,11 @@
 <h1>All queries</h1>
 
-<% @queries.each do |query| %>
-  <p><%= link_to query.created_at, query %> | <%= link_to "delete", query, method: :delete %></p>
+<% if @queries.empty? %>
+  <p>There is no any saved queries yet. Go ahead and generate some macs!</p>
+<% else %>
+  <% @queries.each do |query| %>
+    <p><%= link_to title(query), query %> | <%= link_to "delete", query, method: :delete %></p>
+  <% end %>
 <% end %>
 
 <%= will_paginate %>
