@@ -1,20 +1,5 @@
+<% provide(:button_text, "Submit!") %>
+
 <h1>New query</h1>
 
-<%= form_for @query do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-
-  <%= f.label :amount, "How many addresses do you need?" %>
-  <%= f.text_field :amount, class: "form-control" %>
-
-  <%= f.label :vendor, "Set vendor ID (e.g. 001fce)" %>
-  <%= f.text_field :vendor, class: "form-control" %>
-
-  <%= f.label :start, "Set address to start (e.g. fa628a):" %>
-  <%= f.text_field :start, class: "form-control" %>
-
-  <%= f.label :separator, "What separator would you prefer?" %>
-  <%= f.text_field :separator, class: "form-control" %>
-
-  <%= f.submit "Submit!", class: "btn btn-primary" %>
-
-<% end %>
+<%= render 'layouts/form' %>
