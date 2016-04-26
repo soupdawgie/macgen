@@ -4,7 +4,7 @@ class CreateQueries < ActiveRecord::Migration
       t.integer :amount
       t.string :vendor
       t.string :start
-      t.string :separator, default: ":"
+      t.string :separator
 
       t.timestamps null: false
     end

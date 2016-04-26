@@ -11,7 +11,7 @@
   <%= f.text_field :start, class: "form-control" %>
 
   <%= f.label :separator, "What separator would you prefer?" %>
-  <%= f.text_field :separator, class: "form-control" %>
+  <%= f.text_field :separator, class: "form-control", value: ":" %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 
