@@ -1,14 +1,14 @@
 <div class="query-show">
   <h1><%= title(@query) %></h1>
   <div class="action-links">
-    <%= link_to "edit",   edit_query_path(@query) %>
+    <%= link_to "edit", edit_query_path(@query) %>
     <%= link_to "delete", @query, method: :delete, data: { confirm: "You sure?" } %>
   </div>
 </div>
 
 <div class="macs">
   <% amount.times do %>
-    <p><%= format(vendor, spr) + format(position, spr) %></p>
+    <p><%= mac(vendor, position, sep) %></p>
     <% position += 1 %>
   <% end %>
 </div>

@@ -20,11 +20,10 @@ class QueriesController < ApplicationController
   def show
     @query = Query.find(params[:id])
     render template: 'queries/show',
-           locals:  { amount:   @query.amount,
-                      vendor:   @query.vendor,
-                      position: set_start(@query),
-                      spr:      @query.separator,
-                      }
+           locals: { amount: @query.amount,
+                     vendor: @query.vendor,
+                     position: set_start(@query),
+                     sep: @query.separator }
   end
 
   def edit
@@ -48,20 +47,17 @@ class QueriesController < ApplicationController
   end
 
   def set_start(obj)
-    # Base is 1000000 in hexadecimal, zeros are basically octets
+    # 1000000 in hexadecimal
     base  = 16777216
-    # Split input to three octets and convert to decimal
+    # convert the entered octets to decimals
     start = obj.start.scan(/.{2}/).map { |n| n.hex }
-    # Set 6th octet by adding to base,
-    #     5th by adding and multiplying by 256,
-    #     4th by adding and multiplying by 65536.
-    # Then this value's incremented inside the cycle
+    # set starting point for the loop
     start = base + start[2] + (start[1] * 256) + (start[0] * 65536)
   end
 end
 
   private
 
-    def query_params
-      params.require(:query).permit(:amount, :vendor, :start, :separator)
-    end
+  def query_params
+    params.require(:query).permit(:amount, :vendor, :start, :separator)
+  end
