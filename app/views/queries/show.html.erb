@@ -8,7 +8,7 @@
 
 <div class="macs">
   <% amount.times do %>
-    <p><%= mac(vendor, position, sep) %></p>
+    <p><%= decorate(vendor, position) %></p>
     <% position += 1 %>
   <% end %>
 </div>

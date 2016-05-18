@@ -19,11 +19,9 @@ class QueriesController < ApplicationController
 
   def show
     @query = Query.find(params[:id])
-    render template: 'queries/show',
-           locals: { amount: @query.amount,
-                     vendor: @query.vendor,
-                     position: set_start(@query),
-                     sep: @query.separator }
+    locals amount: @query.amount,
+           vendor: @query.vendor,
+           position: set_start(@query)
   end
 
   def edit
@@ -52,7 +50,7 @@ class QueriesController < ApplicationController
     # convert the entered octets to decimals
     start = obj.start.scan(/.{2}/).map { |n| n.hex }
     # set starting point for the loop
-    start = base + start[2] + (start[1] * 256) + (start[0] * 65536)
+    base + start[2] + (start[1] * 256) + (start[0] * 65536)
   end
 end
 
@@ -60,4 +58,8 @@ end
 
   def query_params
     params.require(:query).permit(:amount, :vendor, :start, :separator)
+  end
+
+  def locals(values)
+    render locals: values
   end

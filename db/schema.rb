@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20160408144028) do
     t.integer  "amount"
     t.string   "vendor"
     t.string   "start"
-    t.string   "separator",  default: ":"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "separator"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
